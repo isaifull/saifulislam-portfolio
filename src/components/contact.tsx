@@ -62,8 +62,8 @@ export function Contact() {
             Contact
           </h2>
           <p className="mt-8 max-w-md font-display text-xl leading-snug italic text-muted">
-            A note is enough. Audit, research, or a climate-tech conversation. I
-            read everything.
+            A note is enough. Have a business problem, climate question, risk
+challenge, research idea, or startup worth discussing? I read everything. 
           </p>
           <ul className="mt-8 space-y-2">
             <li>

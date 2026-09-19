@@ -1,14 +1,14 @@
 export const site = {
   name: "Saiful Islam",
-  role: "Sustainability strategist",
-  location: "Varanasi",
+  role: "Climate · Sustainability · Risk · Finance",
+  location: "India",
   email: "alpsaiful17@gmail.com",
   year: "2026",
   origin: "IIFM Bhopal",
   currently: "Now at BFIL",
-  lead: "I turn what the field actually does into carbon inventories, audit trails, and investment theses for climate-tech and agri-tech.",
-  aside: "Assurance at Bharat Financial Inclusion. Theses, memos, and models on the side.",
-} as const;
+  lead: "I research how climate and sustainability problems become business risk, and investment decisions.",
+  aside: "Climate research, risk analysis, decarbonization, sustainable finance, and business operations.",
+} as const; 
 
 export const nav = [
   { href: "#work", label: "Work" },
@@ -17,14 +17,14 @@ export const nav = [
   { href: "#contact", label: "Contact" },
 ] as const;
 
-export type Category = "Audit" | "Research" | "Venture";
+export type Category = "Climate" | "ESG & Risk" | "Finance";
 
 export const categories: Array<"All" | Category> = [
   "All",
-  "Audit",
-  "Research",
-  "Venture",
-];
+  "Climate",
+  "ESG & Risk",
+  "Finance",
+]; 
 
 export type Project = {
   slug: string;
@@ -44,12 +44,12 @@ export const projects: Project[] = [
   {
     slug: "bfil",
     title: "BFIL",
-    deck: "Last-mile credit controls",
-    category: "Audit",
+    deck: "Risk, controls & responsible finance",
+    category: "Risk",
     year: "2026",
     client: "Bharat Financial Inclusion Limited",
     summary:
-      "Internal audit on a microfinance book: testing controls, tracing risk, and reading the last mile of Indian credit.",
+  "Conducting branch-level audits across lending and operational processes, reviewing documentation, transactions, controls, and corrective actions to identify risk and control gaps.",
     image: "/images/bfil.jpg",
     alt: "Women in an Adivasi village, Umaria district, Madhya Pradesh",
     cta: "Write",
@@ -58,102 +58,148 @@ export const projects: Project[] = [
     slug: "iit-madras",
     title: "IIT Madras",
     deck: "Nature-positive business research",
-    category: "Research",
-    year: "2024",
+    category: "Finance",
+    year: "2025-2026",
     client: "School of Sustainability",
-    summary:
-      "A research internship at the School of Sustainability on nature-positive business: field questions, policy questions, then a structure that can hold both.",
+    summary: 
+  "Researching nature-positive business models, ecosystem-service dependencies, nature-related business risks, policy developments, and emerging biodiversity-finance mechanisms.",
     image: "/images/iitm.jpg",
     alt: "The stone IIT Madras gate on the Chennai campus",
     href: "https://digitalc-suite.blogspot.com/",
     cta: "Read",
   },
-  {
-    slug: "phfi",
-    title: "PHFI",
-    deck: "Health, habitat, emissions",
-    category: "Research",
-    year: "2024",
-    client: "Public Health Foundation of India",
-    summary:
-      "A sustainability internship where public health, environment, and greenhouse-gas inventories sit on the same desk.",
-    image: "/images/phfi.jpg",
-    alt: "NASA aerial of agricultural fires over North India, a public-health and GHG view",
-    cta: "Write",
-  },
-  {
+    {
+  slug: "phfi",
+  title: "PHFI",
+  deck: "Healthcare decarbonization",
+  category: "Climate",
+  year: "2025",
+  client: "Public Health Foundation of India",
+  summary:
+    "Developed a greenhouse-gas inventory and decarbonization roadmap for a 2,000-bed healthcare facility, assessing solar, waste, and other interventions with financial feasibility and payback analysis.",
+  image: "/images/phfi.jpg",
+  alt: "NASA aerial of agricultural fires over North India, a public-health and GHG view",
+  cta: "Write",
+},
+   {
     slug: "edc",
     title: "EDC",
-    deck: "Campus venture finance",
-    category: "Venture",
+    deck: "Venture finance & operations",
+    category: "Finance",
     year: "2023",
     client: "Entrepreneurship Development Cell",
     summary:
-      "Head of Finance: budgets, fundraising discipline, and the operating rhythm of a campus venture cell.",
+      "Managed budgeting, fundraising, financial coordination, and operating processes within a student entrepreneurship ecosystem.",
     image: "/images/edc.jpg",
     alt: "Entrance road to IIFM Bhopal, students on a campus morning",
     cta: "Write",
   },
   {
-    slug: "climate-desk",
-    title: "Climate Desk",
-    deck: "Theses, memos, models",
-    category: "Venture",
-    year: "2026",
-    client: "Independent",
-    summary:
-      "Sector theses, investment memos, and financial models for climate-tech and agri-tech, built beside the day job.",
-    image: "/images/climate.jpg",
-    alt: "NASA satellite view of vegetation and cultivated land across India, April 2008",
-    cta: "Write",
-  },
+  slug: "climate-desk",
+  title: "Climate Desk",
+  deck: "Climate-tech research & investment",
+  category: "Finance",
+  year: "2026",
+  client: "Independent",
+  summary:
+    "Building sector research, investment theses, and financial models to understand climate-tech and agri-tech businesses, risks, and opportunities.",
+  image: "/images/climate.jpg",
+  alt: "NASA satellite view of vegetation and cultivated land across India, April 2008",
+  cta: "Write",
+},
 ];
 
 export const about = {
   portrait: "/images/iifm.jpg",
+
   portraitAlt: "Entrance gate of the Indian Institute of Forest Management, Bhopal",
+
   caption: "IIFM Bhopal",
+
   kicker: "Field notes",
-  lead: "Measure the land and the ledger. Then decide.",
+
+  lead: "I work across sustainability, risk, finance, and the practical work of turning ideas into decisions.",
+
   body: [
-    "I trained in sustainability management at IIFM Bhopal. I now work as an Internal Auditor at Bharat Financial Inclusion Limited, a subsidiary of IndusInd Bank, testing controls at the last mile of Indian credit.",
-    "I also write DigitalPlaybook and build toward climate-tech and agri-tech investing. Sector theses, investment memos, financial models. The method does not change with the object. Stay close to the field.",
+    "My background sits at the intersection of sustainability management, business analysis, and execution. I have worked across internal audit, climate and nature research, decarbonization, and sustainable finance.",
+
+    "At PHFI, I developed a GHG inventory and assessed decarbonization interventions for a 2,000-bed healthcare facility. At IIT Madras, I researched nature-positive business models, nature-related business risk, and biodiversity-finance mechanisms. At Bharat Financial Inclusion, I work on branch-level audit, controls, risk, and corrective action.",
+
+    "I have also operated a business myself—co-founding and managing a restaurant, handling budgeting and procurement, improving revenue, and redesigning operating workflows. That experience shapes how I approach startups and new businesses: understand the problem, test the economics, work with evidence, and turn analysis into action.",
   ],
+
   previously: [
-    { role: "Research Intern, School of Sustainability", place: "IIT Madras", year: "2024" },
-    { role: "Sustainability Intern", place: "PHFI", year: "2024" },
-    { role: "Head of Finance", place: "EDC", year: "2023" },
+    { role: "Internal Auditor", place: "Bharat Financial Inclusion", year: "Now" },
+    { role: "Research Intern, School of Sustainability", place: "IIT Madras", year: "2025–26" },
+    { role: "Decarbonization Intern", place: "PHFI", year: "2025" },
   ],
-};
+}; 
 
 export const skillGroups = [
   {
-    title: "Assurance",
+    title: "Climate & Nature",
     items: [
-      { name: "Internal Auditor", note: "Controls testing on a microfinance book" },
-      { name: "Carbon Accounting", note: "Inventories that can survive review" },
-      { name: "Life Cycle Assessment", note: "Impacts from field to finish" },
-      { name: "Materiality", note: "What actually moves the decision" },
+      {
+        name: "GHG Accounting",
+        note: "Inventory development, activity data, and emissions analysis",
+      },
+      {
+        name: "Decarbonization",
+        note: "Roadmaps, interventions, financial feasibility, and payback analysis",
+      },
+      {
+        name: "Nature & Climate Risk",
+        note: "Nature-related business risk, ecosystem dependencies, and climate analysis",
+      },
+      {
+        name: "Sustainability Research",
+        note: "Policy analysis, business-model research, and evidence synthesis",
+      },
     ],
   },
   {
-    title: "Analysis",
+    title: "Risk & Finance",
     items: [
-      { name: "Financial Modelling", note: "Unit economics for climate and agri" },
-      { name: "Data Analysis", note: "Ledgers and field notes, made readable" },
-      { name: "Sector Theses", note: "Where the next bets sit" },
-      { name: "Investment Memos", note: "The case, written to be argued" },
+      {
+        name: "Internal Audit",
+        note: "Controls testing, exceptions, documentation, and corrective action",
+      },
+      {
+        name: "Financial Analysis",
+        note: "Costs, savings, payback, and decision support",
+      },
+      {
+        name: "Sustainable Finance",
+        note: "Biodiversity, blended, and responsible-finance research",
+      },
+      {
+        name: "ESG & Materiality",
+        note: "ESG data, reporting support, materiality, and risk assessment",
+      },
     ],
   },
   {
-    title: "Expression",
+    title: "Business & Execution",
     items: [
-      { name: "Research Writing", note: "Policy and practice, in that order" },
-      { name: "Field Notes", note: "DigitalPlaybook, in public" },
-      { name: "Generative AI", note: "Drafting with a human last pass" },
+      {
+        name: "Business Operations",
+        note: "Budgeting, procurement, workflows, and process improvement",
+      },
+      {
+        name: "Problem Solving",
+        note: "Turning research and evidence into practical decisions",
+      },
+      {
+        name: "Stakeholder Coordination",
+        note: "Working across operational, research, and institutional teams",
+      },
+      {
+        name: "Entrepreneurial Experience",
+        note: "Co-founded and operated a business with responsibility for revenue and operations",
+      },
     ],
   },
-] as const;
+] as const; 
 
 export const skillRibbon = skillGroups.flatMap((group) =>
   group.items.map((item) => item.name),
@@ -195,4 +241,4 @@ export const photoCredits = [
     href: "https://commons.wikimedia.org/wiki/File:India_vegetation,_natural_and_cultivated,_favorable_weather_boosts_Indian_agriculture,_April_2008.jpg",
     credit: "NASA, public domain",
   },
-] as const;
+] as const; 

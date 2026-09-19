@@ -32,7 +32,7 @@ export function ProjectCard({ project, index, featured = false }: ProjectCardPro
             className="project-image media aspect-photo size-full object-cover transition-transform duration-700 ease-[var(--ease-out-soft)] md:absolute md:inset-0 md:aspect-auto"
           />
         </div>
-        <div className="flex flex-col justify-center bg-bg px-5 py-8 sm:px-10 sm:py-12">
+       <div className="flex flex-col justify-center bg-bg px-5 py-8 transition-transform duration-500 ease-[var(--ease-out-soft)] group-hover:translate-x-1 sm:px-10 sm:py-12">
           <p className="kicker">
             {number} / {project.category} · {project.year}
           </p>

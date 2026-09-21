@@ -16,17 +16,22 @@ export function Work() {
   return (
     <section id="work" aria-labelledby="work-heading">
       <div className="shell section-y pb-10 sm:pb-12">
-        <p className="kicker">01 / Selected</p>
+        <p className="kicker">01 / Selected Work</p>
+
         <h2
           id="work-heading"
           className="mt-4 font-display text-3xl leading-tight tracking-[-0.04em] text-fg"
         >
-          Work
+          Building evidence, not claims.
         </h2>
+
         <div className="mt-6 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <p className="max-w-md text-sm leading-normal text-muted">
-            Five pieces from audit, research, and the venture desk.
-          </p>
+          <p className="max-w-xl text-sm leading-normal text-muted">
+  A selection of work across climate, risk, finance, research, and
+  business operations. Different problems, one approach: understand the
+  system, test the evidence, and turn analysis into action.
+</p> 
+
           <div
             className="flex flex-wrap gap-2"
             role="tablist"

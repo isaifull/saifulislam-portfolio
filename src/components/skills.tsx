@@ -22,7 +22,13 @@ export function Skills() {
       </div>
 
       <div className="shell section-y">
-        <p className="kicker">03 / Practice</p>
+        <div className="flex items-center justify-between gap-4">
+  <p className="kicker">03 / Practice</p>
+
+  <span className="text-[0.625rem] font-semibold tracking-[0.16em] text-muted uppercase sm:hidden">
+    Swipe to explore →
+  </span>
+</div> 
 
         <h2
           id="skills-heading"

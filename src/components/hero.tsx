@@ -23,7 +23,7 @@ export function Hero() {
       <div className="hero-grid absolute inset-0" aria-hidden="true" />
 
       <div
-        className="hero-network pointer-events-none absolute inset-0 hidden lg:block"
+        className="hero-network pointer-events-none absolute inset-0 block" 
         aria-hidden="true"
       >
         <HeroScene />
@@ -41,14 +41,7 @@ export function Hero() {
             <span className="hero-label-dot" />
             {node.label}
           </div>
-        ))}
-
-        <div className="hero-center-mark">
-          <span>Climate</span>
-          <span>Risk</span>
-          <span>Capital</span>
-        </div>
-      </div>
+        ))} 
 
       <div className="shell relative z-10 py-24 sm:py-28">
         <div className="flex items-center justify-between gap-4">
@@ -75,9 +68,9 @@ export function Hero() {
           </h1>
 
           <div className="mt-8 max-w-2xl">
-            <p className="font-display text-2xl leading-snug tracking-tight text-fg sm:text-3xl">
-              {site.lead}
-            </p>
+            <p className="max-w-xl text-lg leading-relaxed tracking-[-0.01em] text-fg sm:text-xl">
+  {site.lead}
+</p> 
 
             <p className="mt-4 max-w-xl text-sm leading-normal text-muted sm:text-base">
               Internal audit · Climate research · Decarbonization · ESG risk ·

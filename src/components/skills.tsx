@@ -36,13 +36,13 @@ export function Skills() {
           financial decision-making.
         </p>
 
-        <div className="mt-12 grid gap-0 border-t border-border md:grid-cols-3">
+        <div className="mt-12 flex gap-5 overflow-x-auto border-t border-border pb-4 md:grid md:grid-cols-3 md:gap-0 md:overflow-visible md:pb-0">
           {skillGroups.map((group) => (
             <div
               key={group.title}
-              className="border-b border-border py-8 md:border-b-0 md:border-r md:px-8 md:py-10 md:first:pl-0 md:last:border-r-0 md:last:pr-0"
+              className="min-w-[82vw] shrink-0 border-b border-border py-8 md:min-w-0 md:shrink md:border-b-0 md:border-r md:px-8 md:py-10 md:first:pl-0 md:last:border-r-0 md:last:pr-0"
             >
-              <h3 className="kicker">{group.title}</h3>
+              <h3 className="kicker">{group.title}</h3> 
 
               <ul className="mt-6 space-y-6">
                 {group.items.map((item) => (

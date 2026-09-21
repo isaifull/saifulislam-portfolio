@@ -7,7 +7,7 @@ const [firstName, ...lastParts] = site.name.split(" ");
 const lastName = lastParts.join(" ");
 
 const nodes = [
-  { label: "CLIMATE", x: "60%", y: "29%", delay: "0s" }, 
+  { label: "CLIMATE", x: "60%", y: "29%", delay: "0s" },
   { label: "RISK", x: "67%", y: "16%", delay: "0.8s" },
   { label: "BUSINESS", x: "78%", y: "58%", delay: "1.6s" },
   { label: "CAPITAL", x: "34%", y: "76%", delay: "2.4s" },
@@ -17,13 +17,13 @@ export function Hero() {
   return (
     <section
       id="top"
-      className="hero relative flex min-h-[100svh] flex-col justify-center overflow-hidden bg-bg"
+      className="hero relative flex min-h-[100svh] flex-col justify-start overflow-hidden bg-bg lg:justify-center"
       aria-labelledby="hero-heading"
     >
       <div className="hero-grid absolute inset-0" aria-hidden="true" />
 
       <div
-        className="hero-network pointer-events-none absolute inset-0 block" 
+        className="hero-network pointer-events-none absolute inset-0 block"
         aria-hidden="true"
       >
         <HeroScene />
@@ -41,9 +41,10 @@ export function Hero() {
             <span className="hero-label-dot" />
             {node.label}
           </div>
-        ))} 
+        ))}
+      </div>
 
-      <div className="shell relative z-10 py-24 sm:py-28">
+      <div className="shell relative z-10 py-16 sm:py-20 lg:py-24">
         <div className="flex items-center justify-between gap-4">
           <p className="kicker">
             {site.origin} · {site.location}
@@ -54,7 +55,7 @@ export function Hero() {
           </p>
         </div>
 
-        <div className="mt-16 max-w-4xl lg:mt-20">
+        <div className="mt-12 max-w-4xl lg:mt-20">
           <p className="kicker text-accent">
             Climate · Sustainability · Finance
           </p>
@@ -67,19 +68,19 @@ export function Hero() {
             <span className="italic"> {lastName}</span>
           </h1>
 
-          <div className="mt-8 max-w-2xl">
+          <div className="mt-7 max-w-2xl">
             <p className="max-w-xl text-lg leading-relaxed tracking-[-0.01em] text-fg sm:text-xl">
-  {site.lead}
-</p> 
+              {site.lead}
+            </p>
 
-            <p className="mt-4 max-w-xl text-sm leading-normal text-muted sm:text-base">
+            <p className="mt-3 max-w-xl text-sm leading-normal text-muted sm:text-base">
               Internal audit · Climate research · Decarbonization · ESG risk ·
               Sustainable finance
             </p>
           </div>
         </div>
 
-        <div className="mt-16 flex items-end justify-between gap-8 sm:mt-20">
+        <div className="mt-12 flex items-end justify-between gap-8 sm:mt-16">
           <a
             href="#work"
             className="inline-flex min-h-11 items-center gap-3 text-sm tracking-wide text-fg uppercase"

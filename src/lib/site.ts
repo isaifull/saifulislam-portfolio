@@ -17,13 +17,13 @@ export const nav = [
   { href: "#contact", label: "Contact" },
 ] as const;
 
-export type Category = "Climate" | "ESG & Risk" | "Finance";
+export type Category = "Climate" | "Risk & Controls" | "Finance & Ventures"; 
 
 export const categories: Array<"All" | Category> = [
   "All",
   "Climate",
-  "ESG & Risk",
-  "Finance",
+  "Risk & Controls",
+  "Finance & Ventures",
 ]; 
 
 export type Project = {
@@ -45,7 +45,7 @@ export const projects: Project[] = [
     slug: "bfil",
     title: "BFIL",
     deck: "Risk, controls & responsible finance",
-    category: "Risk",
+    category: "Risk & Controls",
     year: "2026",
     client: "Bharat Financial Inclusion Limited",
     summary:
@@ -85,14 +85,14 @@ export const projects: Project[] = [
     slug: "edc",
     title: "EDC",
     deck: "Venture finance & operations",
-    category: "Finance",
+    category: "Finance & Ventures",
     year: "2023",
     client: "Entrepreneurship Development Cell",
     summary:
       "Managed budgeting, fundraising, financial coordination, and operating processes within a student entrepreneurship ecosystem.",
     image: "/images/edc.jpg",
     alt: "Entrance road to IIFM Bhopal, students on a campus morning",
-    cta: "Write",
+    cta: "Write", 
   },
   {
   slug: "climate-desk",

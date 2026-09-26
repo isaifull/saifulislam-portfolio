@@ -1,69 +1,89 @@
-import { useMemo, useState } from "react";
-import { Button } from "@/components/ui/button";
-import { ProjectCard } from "@/components/project-card";
-import { categories, projects, type Category } from "@/lib/site";
+import { useState } from "react";
 
-type Filter = "All" | Category;
+import {
+  categories,
+  projects,
+  type Category,
+} from "@/lib/site";
+import { ProjectCard } from "@/components/project-card";
+
+const categoryLabels: Record<"All" | Category, string> = {
+  All: "All",
+  Climate: "Climate",
+  "Risk & Controls": "Risk",
+  "Research & Finance": "Research",
+  "Finance & Ventures": "Finance",
+};
 
 export function Work() {
-  const [filter, setFilter] = useState<Filter>("All");
+  const [activeCategory, setActiveCategory] =
+    useState<"All" | Category>("All");
 
-  const visible = useMemo(
-    () => (filter === "All" ? projects : projects.filter((p) => p.category === filter)),
-    [filter],
-  );
+  const filteredProjects =
+    activeCategory === "All"
+      ? projects
+      : projects.filter(
+          (project) => project.category === activeCategory,
+        );
 
   return (
     <section id="work" aria-labelledby="work-heading">
-      <div className="shell section-y pb-10 sm:pb-12">
-        <p className="kicker">01 / Selected Work</p>
+      <div className="shell py-7 sm:py-9">
+        <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between lg:gap-10">
+          <div className="min-w-0">
+            <p className="kicker">01 / Selected work</p>
 
-        <h2
-          id="work-heading"
-          className="mt-4 font-display text-3xl leading-tight tracking-[-0.04em] text-fg"
-        >
-          Building evidence, not claims.
-        </h2>
+            <h2
+              id="work-heading"
+              className="mt-3 font-display text-4xl leading-none tracking-[-0.04em] text-fg sm:text-4xl"
+            >
+              Building evidence, not claims.
+            </h2>
 
-        <div className="mt-6 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <p className="max-w-xl text-sm leading-normal text-muted">
-  A selection of work across climate, risk, finance, research, and
-  business operations. Different problems, one approach: understand the
-  system, test the evidence, and turn analysis into action.
-</p> 
-
-          <div
-            className="flex flex-wrap gap-2"
-            role="tablist"
-            aria-label="Filter projects by category"
-          >
-            {categories.map((category) => {
-              const isActive = filter === category;
-              return (
-                <Button
-                  key={category}
-                  type="button"
-                  variant="chip"
-                  active={isActive}
-                  role="tab"
-                  aria-selected={isActive}
-                  onClick={() => setFilter(category)}
-                >
-                  {category}
-                </Button>
-              );
-            })}
+            <p className="mt-3 max-w-xl text-sm leading-relaxed text-muted">
+              A selection of work across climate, risk, finance, research,
+              and business operations. Different problems, one approach.
+              Understand the system, test the evidence, and turn analysis
+              into action.
+            </p>
           </div>
+
+          <nav
+            aria-label="Filter work by category"
+            className="shrink-0"
+          >
+            <div className="flex flex-nowrap items-center gap-4 whitespace-nowrap text-xs sm:gap-5">
+              {categories.map((category) => {
+                const active = activeCategory === category;
+
+                return (
+                  <button
+                    key={category}
+                    type="button"
+                    onClick={() => setActiveCategory(category)}
+                    className={
+                      active
+                        ? "border-b border-accent pb-1 font-semibold tracking-[0.08em] text-fg uppercase"
+                        : "pb-1 tracking-[0.08em] text-muted uppercase transition-colors hover:text-fg"
+                    }
+                    aria-pressed={active}
+                  >
+                    {categoryLabels[category]}
+                  </button>
+                );
+              })}
+            </div>
+          </nav>
         </div>
       </div>
 
-      <div>
-        {visible.map((project, index) => (
+      <div className="border-b border-border">
+        {filteredProjects.map((project, index) => (
           <ProjectCard
             key={project.slug}
             project={project}
-            index={projects.findIndex((p) => p.slug === project.slug)}
-            featured={filter === "All" && index === 0}
+            index={index}
+            featured={index === 0}
           />
         ))}
       </div>

@@ -1,12 +1,12 @@
 export const site = {
   name: "Saiful Islam",
-  role: "Climate · Sustainability · Risk · Finance",
-  location: "India",
+  role: "· Climate · Sustainability · Risk · Finance",
+  location: "India", 
   email: "alpsaiful17@gmail.com",
   year: "2026",
   origin: "IIFM Bhopal",
   currently: "Now at BFIL",
-  lead: "I research how climate and sustainability problems become business risk, and investment decisions.",
+  lead: "I research how climate and sustainability problems become business, risk, and investment decisions.", 
   aside: "Climate research, risk analysis, decarbonization, sustainable finance, and business operations.",
 } as const; 
 
@@ -17,12 +17,17 @@ export const nav = [
   { href: "#contact", label: "Contact" },
 ] as const;
 
-export type Category = "Climate" | "Risk & Controls" | "Finance & Ventures"; 
+export type Category =
+  | "Climate"
+  | "Risk & Controls"
+  | "Research & Finance"
+  | "Finance & Ventures";
 
 export const categories: Array<"All" | Category> = [
   "All",
   "Climate",
   "Risk & Controls",
+  "Research & Finance",
   "Finance & Ventures",
 ]; 
 
@@ -58,7 +63,7 @@ export const projects: Project[] = [
     slug: "iit-madras",
     title: "IIT Madras",
     deck: "Nature-positive business research",
-    category: "Finance",
+    category: "Research & Finance",  
     year: "2025-2026",
     client: "School of Sustainability",
     summary: 
@@ -81,7 +86,7 @@ export const projects: Project[] = [
   alt: "NASA aerial of agricultural fires over North India, a public-health and GHG view",
   cta: "Write",
 },
-   {
+   { 
     slug: "edc",
     title: "EDC",
     deck: "Venture finance & operations",
@@ -98,7 +103,7 @@ export const projects: Project[] = [
   slug: "climate-desk",
   title: "Climate Desk",
   deck: "Climate-tech research & investment",
-  category: "Finance",
+  category: "Finance & Ventures",
   year: "2026",
   client: "Independent",
   summary:

@@ -37,24 +37,24 @@ export function ProjectCard({
           />
         </div>
 
-        <div className="flex flex-col justify-center bg-bg px-5 py-6 transition-transform duration-500 ease-[var(--ease-out-soft)] group-hover:translate-x-1 sm:px-8 sm:py-8">
+        <div className="flex flex-col justify-center bg-bg px-5 py-7 transition-transform duration-500 ease-[var(--ease-out-soft)] group-hover:translate-x-1 sm:px-8 sm:py-8">
           <p className="kicker">
             {number} / {project.category} · {project.year}
           </p>
 
-          <h3 className="mt-3 font-display text-3xl leading-tight tracking-[-0.03em] text-fg">
+          <h3 className="mt-3 font-display text-4xl leading-[0.95] tracking-[-0.035em] text-fg sm:text-[2.75rem]">
             {project.title}
           </h3>
 
-          <p className="mt-3 font-display text-xl italic text-muted">
+          <p className="mt-3 max-w-md font-display text-lg italic leading-snug text-muted sm:text-xl">
             {project.deck}
           </p>
 
-          <p className="project-copy mt-4 max-w-xl text-sm leading-normal text-muted sm:text-base">
+          <p className="project-copy mt-4 max-w-xl text-[0.95rem] leading-relaxed text-muted sm:text-base">
             {project.summary}
           </p>
 
-          <p className="mt-6 text-xs tracking-[0.16em] text-fg uppercase">
+          <p className="mt-5 text-[0.65rem] font-semibold tracking-[0.16em] text-fg uppercase">
             {project.client} · {cta}
           </p>
         </div>

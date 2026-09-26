@@ -1,5 +1,6 @@
 import { type FormEvent, type ReactNode, useState } from "react";
 import { ArrowUpRight, Check } from "lucide-react";
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -14,17 +15,27 @@ type Fields = {
 
 type Errors = Partial<Fields>;
 
-const empty: Fields = { name: "", email: "", message: "" };
+const empty: Fields = {
+  name: "",
+  email: "",
+  message: "",
+};
 
 function validate(values: Fields): Errors {
   const errors: Errors = {};
-  if (values.name.trim().length < 2) errors.name = "A name helps me reply.";
+
+  if (values.name.trim().length < 2) {
+    errors.name = "A name helps me reply.";
+  }
+
   if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(values.email.trim())) {
     errors.email = "That email does not look right.";
   }
+
   if (values.message.trim().length < 12) {
     errors.message = "A little more context, please.";
   }
+
   return errors;
 }
 
@@ -35,82 +46,105 @@ export function Contact() {
 
   function onSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+
     const next = validate(values);
     setErrors(next);
+
     if (Object.keys(next).length > 0) return;
-    const subject = encodeURIComponent(`Note from ${values.name.trim()}`);
+
+    const subject = encodeURIComponent(
+      `Note from ${values.name.trim()}`,
+    );
+
     const body = encodeURIComponent(
       `${values.message.trim()}\n\n${values.name.trim()}\n${values.email.trim()}`,
     );
-    window.location.href = `mailto:${site.email}?subject=${subject}&body=${body}`;
+
+    window.location.href =
+      `mailto:${site.email}?subject=${subject}&body=${body}`;
+
     setSent(true);
   }
 
   return (
     <section
       id="contact"
-      className="border-t border-border"
       aria-labelledby="contact-heading"
     >
-      <div className="shell section-y grid gap-12 lg:grid-cols-12 lg:gap-16">
+      <div className="shell grid gap-8 py-6 sm:py-8 lg:grid-cols-12 lg:gap-12">
         <div className="lg:col-span-5">
           <p className="kicker">04 / Correspondence</p>
+
           <h2
             id="contact-heading"
-            className="mt-4 font-display text-3xl leading-tight tracking-[-0.04em] text-fg"
+            className="mt-3 font-display text-3xl leading-none tracking-[-0.04em] text-fg sm:text-4xl"
           >
             Contact
           </h2>
-          <p className="mt-8 max-w-md font-display text-xl leading-snug italic text-muted">
-            A note is enough. Have a business problem, climate question, risk
-challenge, research idea, or startup worth discussing? I read everything. 
+
+          <p className="mt-5 max-w-md font-display text-xl leading-[1.08] tracking-[-0.02em] italic text-muted sm:text-[1.35rem]">
+            A note is enough. Have a business problem, climate question,
+            research idea, or startup worth discussing?
           </p>
-          <ul className="mt-8 space-y-2">
-            <li>
-              <a
-                href={`mailto:${site.email}`}
-                className="inline-flex min-h-11 items-center gap-2 text-sm text-fg underline decoration-border-strong underline-offset-4 hover:decoration-accent"
-              >
-                {site.email}
-                <ArrowUpRight className="size-4" aria-hidden="true" />
-              </a>
-            </li>
-            {social.map((item) => (
-              <li key={item.label}>
+
+          <div className="mt-6">
+            <p className="kicker">Visit</p>
+
+            <ul className="mt-2 space-y-1.5 text-sm">
+              <li>
                 <a
-                  href={item.href}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex min-h-11 items-center gap-2 text-sm text-muted underline decoration-border underline-offset-4 hover:text-fg hover:decoration-accent"
+                  href={`mailto:${site.email}`}
+                  className="inline-flex min-h-8 items-center gap-2 text-fg underline decoration-border-strong underline-offset-4 transition-colors hover:decoration-accent"
                 >
-                  {item.label}
-                  <ArrowUpRight className="size-4" aria-hidden="true" />
+                  Email
+                  <ArrowUpRight
+                    className="size-3.5"
+                    aria-hidden="true"
+                  />
                 </a>
               </li>
-            ))}
-          </ul>
+
+              {social.map((item) => (
+                <li key={item.label}>
+                  <a
+                    href={item.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex min-h-8 items-center gap-2 text-muted underline decoration-border underline-offset-4 transition-colors hover:text-fg hover:decoration-accent"
+                  >
+                    {item.label}
+                    <ArrowUpRight
+                      className="size-3.5"
+                      aria-hidden="true"
+                    />
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
         </div>
 
         <div className="lg:col-span-7">
           {sent ? (
             <div
-              className="flex min-h-64 flex-col justify-center rounded-xl border border-border bg-paper px-6 py-10"
+              className="rounded-xl border border-border bg-paper px-6 py-7 sm:px-8"
               role="status"
             >
-              <span className="flex size-10 items-center justify-center rounded-pill bg-accent text-accent-fg">
-                <Check className="size-5" aria-hidden="true" />
+              <span className="flex size-9 items-center justify-center rounded-full bg-accent text-accent-fg">
+                <Check className="size-4" aria-hidden="true" />
               </span>
-              <p className="mt-5 font-display text-2xl tracking-tight text-fg">
+
+              <p className="mt-4 font-display text-xl tracking-tight text-fg">
                 Received. Thank you.
               </p>
-              <p className="mt-3 max-w-md text-sm leading-normal text-muted">
-                I will write back to {values.email} as soon as I can. In the
-                meantime I am in {site.location}.
+
+              <p className="mt-2 text-sm leading-relaxed text-muted">
+                I will write back to {values.email} as soon as I can.
               </p>
             </div>
           ) : (
-            <form onSubmit={onSubmit} className="space-y-5" noValidate>
-              <div className="grid gap-5 sm:grid-cols-2">
+            <form onSubmit={onSubmit} className="space-y-4" noValidate>
+              <div className="grid gap-4 sm:grid-cols-2">
                 <Field id="name" label="Name" error={errors.name}>
                   <Input
                     id="name"
@@ -118,12 +152,18 @@ challenge, research idea, or startup worth discussing? I read everything.
                     autoComplete="name"
                     value={values.name}
                     aria-invalid={Boolean(errors.name)}
-                    aria-describedby={errors.name ? "name-error" : undefined}
+                    aria-describedby={
+                      errors.name ? "name-error" : undefined
+                    }
                     onChange={(event) =>
-                      setValues((current) => ({ ...current, name: event.target.value }))
+                      setValues((current) => ({
+                        ...current,
+                        name: event.target.value,
+                      }))
                     }
                   />
                 </Field>
+
                 <Field id="email" label="Email" error={errors.email}>
                   <Input
                     id="email"
@@ -132,27 +172,46 @@ challenge, research idea, or startup worth discussing? I read everything.
                     autoComplete="email"
                     value={values.email}
                     aria-invalid={Boolean(errors.email)}
-                    aria-describedby={errors.email ? "email-error" : undefined}
+                    aria-describedby={
+                      errors.email ? "email-error" : undefined
+                    }
                     onChange={(event) =>
-                      setValues((current) => ({ ...current, email: event.target.value }))
+                      setValues((current) => ({
+                        ...current,
+                        email: event.target.value,
+                      }))
                     }
                   />
                 </Field>
               </div>
-              <Field id="message" label="Message" error={errors.message}>
+
+              <Field
+                id="message"
+                label="Message"
+                error={errors.message}
+              >
                 <Textarea
                   id="message"
                   name="message"
                   value={values.message}
                   aria-invalid={Boolean(errors.message)}
-                  aria-describedby={errors.message ? "message-error" : undefined}
+                  aria-describedby={
+                    errors.message ? "message-error" : undefined
+                  }
                   onChange={(event) =>
-                    setValues((current) => ({ ...current, message: event.target.value }))
+                    setValues((current) => ({
+                      ...current,
+                      message: event.target.value,
+                    }))
                   }
                 />
               </Field>
-              <div className="flex flex-wrap items-center justify-between gap-4 pt-2">
-                <p className="text-xs text-subtle">Usually replies within a few days.</p>
+
+              <div className="flex flex-wrap items-center justify-between gap-3">
+                <p className="text-xs text-subtle">
+                  Usually replies within a few days.
+                </p>
+
                 <Button type="submit">Send note</Button>
               </div>
             </form>
@@ -175,14 +234,19 @@ function Field({
   children: ReactNode;
 }) {
   return (
-    <div className="flex flex-col gap-2">
+    <div className="flex flex-col gap-1.5">
       <Label htmlFor={id}>{label}</Label>
+
       {children}
+
       {error ? (
-        <p id={`${id}-error`} className="text-xs text-accent">
+        <p
+          id={`${id}-error`}
+          className="text-xs text-accent"
+        >
           {error}
         </p>
       ) : null}
     </div>
   );
-}
+} 

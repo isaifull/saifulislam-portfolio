@@ -1,63 +1,59 @@
-import { skillGroups, skillRibbon } from "@/lib/site";
+import { skillGroups } from "@/lib/site";
 
 export function Skills() {
-  const loop = [...skillRibbon, ...skillRibbon];
-
   return (
     <section id="skills" aria-labelledby="skills-heading">
-      <div className="border-y border-border bg-paper py-6">
-        <div className="marquee" aria-hidden="true">
-          <div className="marquee-track gap-10 px-8">
-            {loop.map((item, index) => (
-              <span
-                key={`${item}-${index}`}
-                className="font-display text-2xl tracking-tight text-fg/80 whitespace-nowrap"
-              >
-                {item}
-                <span className="ml-10 text-accent">·</span>
-              </span>
-            ))}
-          </div>
-        </div>
-      </div>
-
-      <div className="shell section-y">
+      <div className="shell py-6 sm:py-8">
         <div className="flex items-center justify-between gap-4">
-  <p className="kicker">03 / Practice</p>
+          <p className="kicker">03 / Practice</p>
 
-  <span className="text-[0.625rem] font-semibold tracking-[0.16em] text-muted uppercase sm:hidden">
-    Swipe to explore →
-  </span>
-</div> 
+          <span className="text-[0.6rem] font-semibold tracking-[0.14em] text-muted uppercase sm:hidden">
+            Swipe →
+          </span>
+        </div>
 
-        <h2
-          id="skills-heading"
-          className="mt-4 font-display text-3xl leading-tight tracking-[-0.04em] text-fg"
-        >
-          Skills
-        </h2>
+        <div className="mt-3 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+          <h2
+            id="skills-heading"
+            className="font-display text-3xl leading-none tracking-[-0.04em] text-fg sm:text-4xl"
+          >
+            Skills
+          </h2>
 
-        <p className="mt-4 max-w-lg text-sm leading-normal text-muted">
-          The tools I use to connect climate, sustainability, risk, and
-          financial decision-making.
-        </p>
+          <p className="max-w-md text-xs leading-relaxed text-muted sm:text-sm">
+            Climate, sustainability, risk, finance, and business execution.
+          </p>
+        </div>
 
-        <div className="mt-12 flex gap-5 overflow-x-auto border-t border-border pb-4 md:grid md:grid-cols-3 md:gap-0 md:overflow-visible md:pb-0">
+        <div className="mt-6 flex gap-0 overflow-x-auto border-t border-border md:grid md:grid-cols-3 md:overflow-visible">
           {skillGroups.map((group) => (
             <div
               key={group.title}
-              className="min-w-[82vw] shrink-0 border-b border-border py-8 md:min-w-0 md:shrink md:border-b-0 md:border-r md:px-8 md:py-10 md:first:pl-0 md:last:border-r-0 md:last:pr-0"
+              className="
+                min-w-[80vw]
+                shrink-0
+                py-5
+                pr-7
+                md:min-w-0
+                md:px-6
+                md:py-6
+                md:first:pl-0
+                md:last:pr-0
+                md:border-r
+                md:border-border
+                md:last:border-r-0
+              "
             >
-              <h3 className="kicker">{group.title}</h3> 
+              <h3 className="kicker">{group.title}</h3>
 
-              <ul className="mt-6 space-y-6">
+              <ul className="mt-4 space-y-3.5">
                 {group.items.map((item) => (
                   <li key={item.name}>
-                    <p className="font-display text-xl tracking-tight text-fg">
+                    <p className="font-display text-base leading-tight tracking-[-0.01em] text-fg sm:text-lg">
                       {item.name}
                     </p>
 
-                    <p className="mt-1 text-sm leading-normal text-muted">
+                    <p className="mt-0.5 max-w-sm text-[0.7rem] leading-[1.45] text-muted sm:text-xs">
                       {item.note}
                     </p>
                   </li>
@@ -69,4 +65,4 @@ export function Skills() {
       </div>
     </section>
   );
-}
+} 

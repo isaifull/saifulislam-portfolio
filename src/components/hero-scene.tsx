@@ -54,7 +54,7 @@ function Scene() {
         />
       </mesh>
 
-      {/* Single orbital ring */}
+      {/* One orbital ring */}
       <group rotation={[Math.PI / 2.45, 0.16, 0]}>
         <mesh>
           <torusGeometry args={[ORBIT_RADIUS, 0.006, 8, 180]} />
@@ -126,17 +126,21 @@ function Scene() {
 export function HeroScene() {
   return (
     <div
-  className="pointer-events-none absolute block"
-  style={{
-    right: "-18%",
-    top: "18%",
-    width: "77%",
-    height: "79%",
-  }}
->
+      className="
+        pointer-events-none
+        absolute
+        right-[-2.50vw]
+        top-[0.05rem]
+        hidden
+        aspect-square
+        w-[min(49vw,620px)]
+        lg:block
+      "
+      aria-hidden="true"
+    >
       <Canvas
         camera={{
-          position:   [0, 0, 5.0],
+          position: [0, 0, 7],
           fov: 35,
         }}
         dpr={[1, 1.5]}

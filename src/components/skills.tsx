@@ -3,7 +3,7 @@ import { skillGroups } from "@/lib/site";
 export function Skills() {
   return (
     <section id="skills" aria-labelledby="skills-heading">
-      <div className="shell py-6 sm:py-8">
+      <div className="shell py-5 sm:py-7">
         <div className="flex items-center justify-between gap-4">
           <p className="kicker">03 / Practice</p>
 
@@ -25,7 +25,7 @@ export function Skills() {
           </p>
         </div>
 
-        <div className="mt-6 flex gap-0 overflow-x-auto border-t border-border md:grid md:grid-cols-3 md:overflow-visible">
+        <div className="mt-5 flex gap-0 overflow-x-auto border-t border-border md:grid md:grid-cols-3 md:overflow-visible">
           {skillGroups.map((group) => (
             <div
               key={group.title}

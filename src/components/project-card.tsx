@@ -16,6 +16,8 @@ export function ProjectCard({
   const href = project.href ?? "#contact";
   const cta = project.cta ?? "Write";
   const external = href.startsWith("http");
+  const isVideo = project.image.toLowerCase().endsWith(".mp4");
+  const isEdc = project.slug === "edc";
 
   return (
     <article className="project-card group border-t border-border">
@@ -23,21 +25,44 @@ export function ProjectCard({
         href={href}
         className={cn(
           "grid overflow-hidden focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-4 focus-visible:ring-offset-bg md:grid-cols-2",
-          featured ? "md:min-h-[22rem]" : "md:min-h-[18rem]",
+          featured ? "md:min-h-[19rem]" : "md:min-h-[16rem]",
         )}
         aria-label={`${project.title}: ${project.summary}`}
-        {...(external ? { target: "_blank", rel: "noreferrer" } : {})}
+        {...(external
+          ? { target: "_blank", rel: "noreferrer" }
+          : {})}
       >
-        <div className="relative overflow-hidden bg-surface">
-          <img
-            src={project.image}
-            alt={project.alt}
-            loading="lazy"
-            className="project-image media aspect-photo size-full object-cover transition-transform duration-700 ease-[var(--ease-out-soft)] md:absolute md:inset-0 md:aspect-auto"
-          />
+        <div
+          className={cn(
+            "relative overflow-hidden bg-surface",
+            isEdc && "bg-[#ffb20a]",
+          )}
+        >
+          {isVideo ? (
+            <video
+              src={project.image}
+              autoPlay
+              muted
+              loop
+              playsInline
+              preload="metadata"
+              aria-label={project.alt}
+              className="project-image media size-full object-cover transition-transform duration-700 ease-[var(--ease-out-soft)] md:absolute md:inset-0"
+            />
+          ) : (
+            <img
+              src={project.image}
+              alt={project.alt}
+              loading="lazy"
+              className={cn(
+                "project-image media size-full transition-transform duration-700 ease-[var(--ease-out-soft)] md:absolute md:inset-0",
+                isEdc ? "object-contain" : "object-cover",
+              )}
+            />
+          )}
         </div>
 
-        <div className="flex flex-col justify-center bg-bg px-5 py-7 transition-transform duration-500 ease-[var(--ease-out-soft)] group-hover:translate-x-1 sm:px-8 sm:py-8">
+        <div className="flex flex-col justify-center bg-bg px-5 py-5 transition-transform duration-500 ease-[var(--ease-out-soft)] group-hover:translate-x-1 sm:px-8 sm:py-6">
           <p className="kicker">
             {number} / {project.category} · {project.year}
           </p>
@@ -46,7 +71,7 @@ export function ProjectCard({
             {project.title}
           </h3>
 
-          <p className="mt-3 max-w-md font-display text-lg italic leading-snug text-muted sm:text-xl">
+          <p className="mt-3 overflow-hidden text-ellipsis whitespace-nowrap font-display text-base italic leading-tight tracking-[-0.01em] text-muted sm:text-lg">
             {project.deck}
           </p>
 

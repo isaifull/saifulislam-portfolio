@@ -62,29 +62,33 @@ export const projects: Project[] = [
     alt: "BFIL project visual",
   },
   {
-    slug: "iit-madras",
-    title: "IIT Madras",
-    deck: "Nature-related risk & biodiversity finance",
-    category: "Research & Finance",
-    year: "2025–26",
-    client: "School of Sustainability",
-    summary:
-      "Researched nature-positive business models, ecosystem-service dependencies, nature-related business risks, policy developments, and biodiversity-finance mechanisms. Mapped public, private, and blended-finance pathways for Indian enterprises.",
-    image: "/images/iitm.jpg",
-    alt: "Nature-positive business research visual",
-  },
+  slug: "iit-madras",
+  title: "IIT Madras",
+  deck: "Nature-related risk & biodiversity finance",
+  category: "Research & Finance",
+  year: "2025–26",
+  client: "School of Sustainability",
+  summary:
+    "Researched nature-positive business models, ecosystem-service dependencies, nature-related business risks, policy developments, and biodiversity-finance mechanisms. Mapped public, private, and blended-finance pathways for Indian enterprises.",
+  image: "/images/iitm.jpg",
+  alt: "Nature-positive business research visual",
+  href: "/files/White%20paper.pdf",
+  cta: "Read research paper",
+},
   {
-    slug: "phfi",
-    title: "PHFI",
-    deck: "Healthcare GHG inventory & decarbonization",
-    category: "Climate",
-    year: "2025",
-    client: "Public Health Foundation of India",
-    summary:
-      "Developed a GHG inventory for a 2,000-bed healthcare facility and assessed decarbonization options, including solar and waste interventions. Supported a roadmap targeting 20–25% emissions reduction, with financial feasibility and payback analysis.",
-    image: "/images/phfi.mp4",
-    alt: "Healthcare decarbonization project video",
-  },
+  slug: "phfi",
+  title: "PHFI",
+  deck: "Healthcare GHG inventory & decarbonization",
+  category: "Climate",
+  year: "2025",
+  client: "Public Health Foundation of India",
+  summary:
+    "Developed a GHG inventory for a 2,000-bed healthcare facility and assessed decarbonization options, including solar and waste interventions. Supported a roadmap targeting 20–25% emissions reduction, with financial feasibility and payback analysis.",
+  image: "/images/PHFI.avif",
+  alt: "Healthcare decarbonization project visual",
+  href: "/files/Dashboard_FY2024.html",
+  cta: "View dashboard",
+},
   {
     slug: "edc",
     title: "EDC",
@@ -114,9 +118,6 @@ export const projects: Project[] = [
 ];
 
 export const about = {
-  portrait: "/images/iifm.jpg",
-  portraitAlt: "Indian Institute of Forest Management campus in Bhopal",
-  caption: "IIFM Bhopal",
   kicker: "Field notes",
   lead:
     "I work across climate and nature research, operational risk, and financial analysis, focusing on how environmental and business issues translate into decisions.",
@@ -150,19 +151,19 @@ export const skillGroups = [
     items: [
       {
         name: "GHG Inventory Development",
-        note: "PHFI — inventory development for a 2,000-bed healthcare facility",
+        note: "PHFI: Inventory development for a 2,000-bed healthcare facility",
       },
       {
         name: "Decarbonization Analysis",
-        note: "PHFI — intervention assessment, feasibility, and payback analysis",
+        note: "PHFI: Intervention assessment, feasibility, and payback analysis",
       },
       {
         name: "Nature-Related Risk",
-        note: "IIT Madras — ecosystem-service dependencies and business risk",
+        note: "IIT Madras: Ecosystem-service dependencies and business risk",
       },
       {
         name: "Sustainability Research",
-        note: "PHFI and IIT Madras — evidence synthesis, policy, and business models",
+        note: "PHFI and IIT Madras: Evidence synthesis, policy, and business models",
       },
     ],
   },
@@ -171,7 +172,7 @@ export const skillGroups = [
     items: [
       {
         name: "Internal Audit",
-        note: "BFIL — documentation, transaction, control, and compliance reviews",
+        note: "BFIL: Documentation, transaction, control, and compliance reviews",
       },
       {
         name: "Financial Modelling",
@@ -179,11 +180,11 @@ export const skillGroups = [
       },
       {
         name: "Sustainable Finance",
-        note: "IIT Madras — public, private, and blended biodiversity-finance mechanisms",
+        note: "IIT Madras: Public, private, and blended biodiversity-finance mechanisms",
       },
       {
         name: "Business & Investment Research",
-        note: "Climate Desk — sector research, business models, and investment questions",
+        note: "Climate Desk: Sector research, business models, and investment questions",
       },
     ],
   },
@@ -192,7 +193,7 @@ export const skillGroups = [
     items: [
       {
         name: "Business Operations",
-        note: "Restaurant operations — budgeting, procurement, and workflows",
+        note: "Restaurant operations: Budgeting, procurement, and workflows",
       },
       {
         name: "Financial Planning",
